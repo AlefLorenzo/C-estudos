@@ -1,0 +1,22 @@
+#include<stdio.h>
+#include<math.h>
+
+int main(){
+    int min, cobrar, cobranca;
+   
+   cobrar = 50;
+   cobranca = 0;
+   printf("quanto tempo durou seu plano: ");
+   scanf("%d", &min);
+   
+   if(min > 100){
+       cobranca = min - 100;
+       cobrar += cobranca *2;
+       printf("o valor total de : R$ %.2d", cobrar);
+   }
+   else{
+      printf("o valor total de : R$ %.2d",cobrar);
+   }
+    
+    return 0;
+}
