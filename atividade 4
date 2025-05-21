@@ -1,0 +1,32 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <string.h>
+
+
+int main() {
+   
+
+   char palav;
+   int temp;
+   float convert_celsius, convert_fahrenheit;
+   
+   printf("Digite a temperatura para ser convertida: ");
+   scanf("%d",&temp);
+   
+   printf("Digite a (C/F): ");
+   scanf("%s",&palav);
+   
+    convert_celsius = (temp * 1.8) + 32;
+   if(palav == 'C'){
+     
+      printf("a temperatura para Celsius:%.2f\n",convert_celsius);
+   }
+   convert_fahrenheit = 1.8 * (temp  - 32);
+   
+   if(palav == 'F'){
+     
+     printf("a temperatura para fahrenheit: %.2f\n",convert_fahrenheit);
+   }
+  
+    return 0;
+}
