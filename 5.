@@ -1,0 +1,31 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <string.h>
+
+
+int main() {
+   
+
+   
+   int clima;
+ 
+   
+   printf("Digite quantos ta a medida do clima: ");
+   scanf("%d",&clima);
+   
+  
+   if(clima < 20){
+       printf("O clima esta ficando frio!");
+   }
+   if(clima >= 20 && clima <= 30){
+        printf("O clima esta ficando quente!");
+   }
+   
+   if(clima >= 30 && clima <= 40){
+        printf("O clima esta ficando quente DEMAIS!");
+   }
+    if(clima >= 30 && clima >= 40){
+        printf("O clima esta ficando O INFERNO!");
+   }
+    return 0;
+}
