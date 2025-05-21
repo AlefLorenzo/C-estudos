@@ -1,0 +1,30 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+
+int main() {
+   
+   
+   int glicose;
+   
+   printf("qual o seu nivel de glicose: ");
+   scanf("%d", &glicose);
+   
+   if( glicose < 75){
+        printf("Esta Baixa! \n");
+   }
+   if(glicose > 75 && glicose < 100 ){
+       printf("Glicose esta normal!\n");
+      
+   }
+    
+    if(glicose > 100 && glicose < 140 ){
+       printf("Glicose esta Elevada!\n");
+       
+   }
+   if(glicose > 140){
+       printf("Diabetes!\n");
+   }
+
+   
+    return 0;
+}
