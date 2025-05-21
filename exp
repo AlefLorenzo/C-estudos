@@ -1,0 +1,108 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <string.h>
+
+void limparBuffer() {
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF) {}
+}
+
+int main() {
+  int N, i, quantidade, total, totalR, totalS, totalC,opcao ; 
+  char especie;
+  double percC = 0 , percR = 0,percS = 0;
+   //totais 
+    total = 0;
+    totalC = 0; 
+    totalR = 0;
+    totalS = 0;
+  
+    printf("Digite a quantidade de caso: ");
+    scanf("%d",&N);
+    limparBuffer();
+    printf("\n");
+    
+    
+  do{
+    printf("________MENU DE EXPERIENÇIA________\n");
+    printf("1-Adicionar experiençia\n");
+    printf("2-ADD experimento\n");
+    printf("3-Sair\n");
+    
+    printf("Digite a opção: ");
+    scanf("%d",&opcao);
+    limparBuffer();
+    
+    
+        switch(opcao){
+             case 1:
+                    for(i=0;i < N; i++ ){
+                        printf("Digite a quantidade de cobaias:\n ");
+                        scanf("%d",&quantidade);
+                         limparBuffer();
+                         break;
+                    }    
+            case 2:
+               
+                printf("C-coelhos\n");
+                printf("R-ratos\n");
+                printf("S-sapos\n");
+                
+                printf("qual a especie de cobaia: \n");
+                scanf("%c" ,&especie);
+                limparBuffer();
+                break;
+            case 3:
+                printf("Sair.\n");
+                 break;
+            default: 
+             printf("Opção invalida!!!\n");
+             break;
+        }     
+         if(especie == 'C'){
+            totalC = totalC + quantidade;
+        }
+        if(especie == 'R'){
+            totalR = totalR + quantidade;
+        }
+                
+        if(especie == 'S'){
+            totalS= totalS + quantidade;
+        }
+    
+       total += quantidade;
+       
+        if(total != 0){ 
+            percC = (totalC * 100) / total;
+            percR = (totalR * 100) / total;
+            percS = (totalS * 100) / total; 
+        }
+    
+      
+    printf("\n");
+    printf("total: %d de cobaias.\n", total);
+    printf("\n");
+    printf("total de coelhos:%d\n", totalC);
+    printf("total de ratos:%d\n", totalR);
+    printf("total de sapos:%d\n",totalS);
+    printf("\n");    
+    printf("__porcetagem__\n");
+        
+    printf("Percentual de coelhos: %.2lf %%\n", percC);
+    printf("Percentual de ratos: %.2lf %%\n", percR);
+    printf("Percentual de sapos: %.2lf %%\n", percS);
+    printf("\n"); 
+    
+  
+       
+    
+ 
+  } while(opcao != 3);
+  
+     
+    
+    
+  
+    
+ return 0;
+}
