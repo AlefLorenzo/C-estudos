@@ -1,0 +1,40 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+#define lugares 44
+int main() {
+    int Tam_lugares[lugares];
+    int opcao, passagem;
+    int nome[100];
+    
+    
+    do{
+        printf("Digite o nome para cadastro: ");
+        scanf("%s", nome);
+        printf("____Menu____ %s \n",nome);
+        printf("\n1-compra de passagem");
+        printf("\n2-dados da compra");
+        printf("\n0-sair");
+        printf("\n");
+        printf("Digite a opcao: ");
+        scanf("%d",&opcao);
+        switch(opcao){
+            case 1: 
+                for(int i = 1; i < lugares; i++){
+                   
+                   printf("digite quantas passagem deseja: ");
+                   scanf("%d",&passagem);
+                   break;
+                }
+                break;
+            case 2: 
+               printf("\n");
+               printf("__________Dados da compra__________\n");
+               
+               printf("Nome : %s | N-passagem : %d | Vagos : %d \n",nome, passagem, lugares - passagem);
+               printf("\n");
+               break;
+        }   
+    }while(opcao != 0);
+
+    return 0;
+}
