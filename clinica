@@ -1,0 +1,106 @@
+	#include <stdio.h>
+	#include <string.h>
+	
+	#define Atendimento 100
+	#define MAX 100
+	void limparBuffer(void) {
+	    int c;
+	    while ((c = getchar()) != '\n' && c != EOF);
+	}
+	
+	int main() {
+	    int ID[Atendimento];
+	    char nome[Atendimento][100];
+	    int opcao,procura_ID;
+	    int atendimento = 0;
+		int topo ;
+		int pilha = -1 ;
+		int fila_atendimento[MAX];
+		int totalFila = 0;
+		
+		int histo_chamado;
+		int total_Chamado;
+		
+	    do {
+	        printf("\n=== Clinica Bem Cuidar ===\n");
+	        printf("1 - Gerar ID (Cadastro)\n");
+	        printf("2 - Ver Fila (IDs)\n");
+	        printf("3 - Ver Historico (IDs e nomes)\n");
+	        printf("4 - Procura pacientes(ID)\n");
+	        printf("5 - Sair\n");
+	        printf("Escolha uma opcao: ");
+	        scanf("%d", &opcao);
+	        limparBuffer();
+	
+	        switch (opcao) {
+	            case 1:
+	                printf("Digite seu nome: ");
+	                fgets(nome[atendimento], sizeof(nome[atendimento]), stdin);
+	                nome[atendimento][strcspn(nome[atendimento], "\n")] = '\0';
+	
+	                ID[atendimento] = atendimento + 1;
+	
+	                printf("Seu ID é: %d\n", ID[atendimento]);
+	
+	                ID[Atendimento] = atendimento;
+	                atendimento++;
+	
+	            case 2:
+	                if (atendimento == 0) {
+	                    printf("Fila vazia.\n");
+	                } else {
+	                    printf("=== Fila de Atendimento ===\n");
+	                    for (int i = 0; i < atendimento; i++) {
+	                        printf("ID: %d | Nome: %s | \n", ID[i], nome[i]);
+	                    }
+	                }
+	                break;
+	
+	            case 3:
+	                if (atendimento == 0) {
+	                    printf("Nenhum historico.\n");
+	                } else {
+	                    printf("=== Historico ===\n");
+	                    for (int i = 0; i < atendimento; i++) {
+	                        printf("ID: %d - Nome: %s\n", ID[i], nome[i]);
+	                    }
+	                }
+	                break;
+	                
+	            case 4:
+					    printf("Digite o ID a ser procurado: ");
+					    scanf("%d", &procura_ID);
+					    limparBuffer();
+					
+					    for (int i = 0; i < atendimento; i++) {
+					        if (ID[i] == procura_ID) {
+					            printf("Paciente %s (ID: %d) esta sendo atendido.\n", nome[i], ID[i]);
+					
+					            
+					            for (int j = i; j < atendimento - 1; j++) {
+					                ID[j] = ID[j + 1];
+					                strcpy(nome[j], nome[j + 1]);
+					            }
+					
+					            atendimento--;
+					            break;
+						        }
+						        if (i == atendimento - 1) {
+						            printf("ID nao encontrado.\n");
+						        }
+						    }
+						    break;
+
+	
+	            case 5:
+	                printf("Encerrando...\n");
+	                break;
+	
+	            default:
+	                printf("Opcao invalida.\n");
+	        }
+	
+	    } while (opcao != 5);
+	
+	    return 0;
+	}
